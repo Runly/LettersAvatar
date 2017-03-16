@@ -24,7 +24,7 @@ allprojects {
 
 ```groovy
 dependencies {
-    compile 'com.github.Runly:LettersAvatar:v1.0.1'
+    compile 'com.github.Runly:LettersAvatar:v1.0.2'
 }
 ```
 
