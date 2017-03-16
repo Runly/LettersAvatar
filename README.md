@@ -11,20 +11,20 @@
 
 - Add this in your **root** `build.gradle` :
 
-```
+```groovy
 allprojects {
-	repositories {
-		...
-		maven { url "https://jitpack.io" }
-	}
+    repositories {
+        ...
+        maven { url "https://jitpack.io" }
+    }
 }
 ```
 
 - Add this in your **app** `build.gradle` :
 
-```
+```groovy
 dependencies {
-	compile 'com.github.Runly:LettersAvatar:v1.0.1'
+    compile 'com.github.Runly:LettersAvatar:v1.0.1'
 }
 ```
 
@@ -56,7 +56,7 @@ dependencies {
                         .canvasSize(300, 300)
                         .create();
                         
-	imageView.setImageBitmap(bitmap);     
+    imageView.setImageBitmap(bitmap);     
    
 ```
 
