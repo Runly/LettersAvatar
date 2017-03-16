@@ -12,20 +12,20 @@
 - Add this in your **root** `build.gradle` :
 
 ```
-	allprojects {
-        repositories {
-        ...
-        maven { url "https://jitpack.io" }
-        }
+allprojects {
+	repositories {
+		...
+		maven { url "https://jitpack.io" }
 	}
+}
 ```
 
 - Add this in your **app** `build.gradle` :
 
 ```
-	dependencies {
-    	compile 'com.github.Runly:LettersAvatar:v1.0.1'
-	}
+dependencies {
+	compile 'com.github.Runly:LettersAvatar:v1.0.1'
+}
 ```
 
 ### Usage
