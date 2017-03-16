@@ -9,6 +9,7 @@ import android.graphics.PorterDuff;
 import android.graphics.PorterDuffXfermode;
 import android.graphics.RectF;
 import android.support.v4.content.ContextCompat;
+import android.text.TextUtils;
 import android.widget.ImageView;
 
 import com.github.stuxuhai.jpinyin.PinyinException;
@@ -56,14 +57,22 @@ public class LetterAvatar {
 	 * set letter you want to draw
 	 * only draw first char
 	 *
-	 * @param letter the letters you want to draw
+	 * @param text the letters you want to draw
 	 * @return LetterAvatar itself
 	 */
-	public LetterAvatar firstLetter(String letter) {
-		if (letter == null) {
-			throw new NullPointerException("letter is a null reference");
+	public LetterAvatar firstLetter(String text, boolean capitalized) {
+		if (text == null) {
+			throw new NullPointerException("text is a null reference");
 		} else {
-			letterAvatar.letter = String.valueOf(letter.charAt(0));
+			if (!TextUtils.isEmpty(text)) {
+				String firstLetter = String.valueOf(text.charAt(0));
+				if (capitalized) {
+					letterAvatar.letter = firstLetter.toUpperCase();
+				} else {
+					letterAvatar.letter = firstLetter.toLowerCase();
+				}
+			}
+
 			return letterAvatar;
 		}
 	}
@@ -82,15 +91,16 @@ public class LetterAvatar {
 			throw new NullPointerException("text is a null reference");
 		} else {
 			try {
-				String firstLetter = String.valueOf(PinyinHelper.getShortPinyin(text).charAt(0));
-				if (capitalized) {
-					letterAvatar.letter = firstLetter.toUpperCase();
-				} else {
-					letterAvatar.letter = firstLetter;
+				if (!TextUtils.isEmpty(text)) {
+					String firstLetter = String.valueOf(PinyinHelper.getShortPinyin(text).charAt(0));
+					if (capitalized) {
+						letterAvatar.letter = firstLetter.toUpperCase();
+					} else {
+						letterAvatar.letter = firstLetter.toLowerCase();
+					}
 				}
 			} catch (PinyinException e) {
 				e.printStackTrace();
-				letterAvatar.letter = "";
 			}
 			return letterAvatar;
 		}
@@ -100,14 +110,14 @@ public class LetterAvatar {
 	/**
 	 * set letters you want to draw
 	 *
-	 * @param letters the letters you want to draw
+	 * @param text the letters you want to draw
 	 * @return LetterAvatar itself
 	 */
-	public LetterAvatar letters(String letters) {
-		if (letters == null) {
+	public LetterAvatar letters(String text) {
+		if (text == null) {
 			throw new NullPointerException("letters is a null reference");
 		} else {
-			letterAvatar.letter = letters;
+			letterAvatar.letter = text;
 			return letterAvatar;
 		}
 	}
@@ -300,8 +310,8 @@ public class LetterAvatar {
 		letterSize = 100;
 		letterColor = Color.WHITE;
 		backgroundColor = Color.BLACK;
+		letter = "";
 	}
-
 
 	private class NumberLessThanZeroException extends IllegalAccessException {
 		NumberLessThanZeroException(String errorMessage) {

@@ -6,4 +6,7 @@
 
     <color name="bg_color_one">#ff9bcf</color>
     <color name="bg_color_two">#8192d6</color>
+    <color name="bg_color_three">#00c8ac</color>
+    <color name="bg_color_four">#d74024</color>
+    <color name="bg_color_five">#9cd97e</color>
 </resources>
