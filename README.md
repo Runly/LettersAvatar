@@ -68,7 +68,7 @@ If you want to use `CircleImageView` , I recommend :
 
 
 ### Methods
-|method name|ddescription
+|method name|description
 |---|---|
 |firstLetter(String text, boolean capitalized)|only draw first character, and set the letters to uppercase
 |chineseFirstLetter(String text, boolean capitalized)|draw chinese word's first letter
